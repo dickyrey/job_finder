@@ -6,6 +6,7 @@ import 'package:job/models/company.dart';
 import 'package:job/views/job_detail.dart';
 import 'package:job/widgets/company_card.dart';
 import 'package:job/widgets/company_card2.dart';
+import 'package:job/widgets/recent_job_card.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -141,33 +142,18 @@ class Home extends StatelessWidget {
                 physics: ScrollPhysics(),
                 itemBuilder: (context, index) {
                   var recent = recentList[index];
-                  return Card(
-                    elevation: 0.0,
-                    margin: EdgeInsets.only(right: 18.0, top: 15.0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    child: ListTile(
-                      leading: Container(
-                        width: 50.0,
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12.0),
-                          image: DecorationImage(
-                            image: AssetImage(recent.image),
-                            fit: BoxFit.cover,
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => JobDetail(
+                            company: recent,
                           ),
                         ),
-                      ),
-                      title: Text(recent.job, style: kTitleStyle),
-                      subtitle: Text(
-                        "${recent.companyName} • ${recent.mainCriteria}",
-                      ),
-                      trailing: Icon(
-                        Icons.more_vert,
-                        color: kBlack,
-                      ),
-                    ),
+                      );
+                    },
+                    child: RecentJobCard(company: recent),
                   );
                 },
               ),
