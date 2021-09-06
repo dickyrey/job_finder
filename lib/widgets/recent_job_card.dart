@@ -3,7 +3,7 @@ import 'package:job/constants.dart';
 import 'package:job/models/company.dart';
 
 class RecentJobCard extends StatelessWidget {
-  final Company company;
+  final Company? company;
   RecentJobCard({this.company});
   @override
   Widget build(BuildContext context) {
@@ -20,14 +20,14 @@ class RecentJobCard extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.0),
             image: DecorationImage(
-              image: AssetImage(company.image),
+              image: AssetImage(company!.image!),
               fit: BoxFit.cover,
             ),
           ),
         ),
-        title: Text(company.job, style: kTitleStyle),
+        title: Text(company!.job!, style: kTitleStyle),
         subtitle: Text(
-          "${company.companyName} • ${company.mainCriteria}",
+          "${company!.companyName} • ${company!.mainCriteria}",
         ),
         trailing: Icon(
           Icons.more_vert,

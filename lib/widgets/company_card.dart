@@ -3,7 +3,7 @@ import 'package:job/constants.dart';
 import 'package:job/models/company.dart';
 
 class CompanyCard extends StatelessWidget {
-  final Company company;
+  final Company? company;
   CompanyCard({this.company});
   @override
   Widget build(BuildContext context) {
@@ -27,21 +27,21 @@ class CompanyCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.0),
                   image: DecorationImage(
-                    image: AssetImage(company.image),
+                    image: AssetImage(company!.image!),
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
               Spacer(),
               Text(
-                company.sallary,
+                company!.sallary!,
                 style: kTitleStyle.copyWith(color: Colors.white),
               ),
             ],
           ),
           SizedBox(height: 15.0),
           Text(
-            company.job,
+            company!.job!,
             style: kTitleStyle.copyWith(
               color: Colors.white,
               fontWeight: FontWeight.bold,
@@ -52,7 +52,7 @@ class CompanyCard extends StatelessWidget {
             text: TextSpan(
               children: [
                 TextSpan(
-                  text: company.companyName,
+                  text: company!.companyName,
                   style: kSubtitleStyle.copyWith(
                     color: Colors.white,
                   ),
@@ -64,7 +64,7 @@ class CompanyCard extends StatelessWidget {
                   ),
                 ),
                 TextSpan(
-                  text: company.city,
+                  text: company!.city,
                   style: kSubtitleStyle.copyWith(
                     color: Colors.white,
                   ),
@@ -76,7 +76,7 @@ class CompanyCard extends StatelessWidget {
           Expanded(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: company.tag
+              children: company!.tag!
                   .map(
                     (e) => Container(
                       alignment: Alignment.center,

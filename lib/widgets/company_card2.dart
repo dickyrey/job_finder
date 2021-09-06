@@ -3,7 +3,7 @@ import 'package:job/constants.dart';
 import 'package:job/models/company.dart';
 
 class CompanyCard2 extends StatelessWidget {
-  final Company company;
+  final Company? company;
   CompanyCard2({this.company});
   @override
   Widget build(BuildContext context) {
@@ -27,21 +27,21 @@ class CompanyCard2 extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.0),
                   image: DecorationImage(
-                    image: AssetImage(company.image),
+                    image: AssetImage(company!.image!),
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
               Spacer(),
               Text(
-                company.sallary,
+                company!.sallary!,
                 style: kTitleStyle,
               ),
             ],
           ),
           SizedBox(height: 15.0),
           Text(
-            company.job,
+            company!.job!,
             style: kTitleStyle,
           ),
           SizedBox(height: 15.0),
@@ -49,7 +49,7 @@ class CompanyCard2 extends StatelessWidget {
             text: TextSpan(
               children: [
                 TextSpan(
-                  text: company.companyName,
+                  text: company!.companyName,
                   style: kSubtitleStyle,
                 ),
                 TextSpan(
@@ -57,7 +57,7 @@ class CompanyCard2 extends StatelessWidget {
                   style: kSubtitleStyle,
                 ),
                 TextSpan(
-                  text: company.city,
+                  text: company!.city,
                   style: kSubtitleStyle,
                 ),
               ],
@@ -66,7 +66,7 @@ class CompanyCard2 extends StatelessWidget {
           SizedBox(height: 15.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: company.tag
+            children: company!.tag!
                 .map(
                   (e) => Container(
                     alignment: Alignment.center,

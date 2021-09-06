@@ -3,7 +3,7 @@ import 'package:job/constants.dart';
 import 'package:job/models/company.dart';
 
 class DescriptionTab extends StatelessWidget {
-  final Company company;
+  final Company? company;
   DescriptionTab({this.company});
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class DescriptionTab extends StatelessWidget {
           ),
           SizedBox(height: 15.0),
           Text(
-            company.jobOpportunity,
+            company!.jobOpportunity!,
             style: kSubtitleStyle.copyWith(
               fontWeight: FontWeight.w300,
               height: 1.5,
@@ -31,7 +31,7 @@ class DescriptionTab extends StatelessWidget {
           ),
           SizedBox(height: 15.0),
           Column(
-            children: company.jobResponsbilities
+            children: company!.jobResponsbilities!
                 .map(
                   (e) => Row(
                     crossAxisAlignment: CrossAxisAlignment.start,

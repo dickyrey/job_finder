@@ -1,14 +1,14 @@
 class Company {
-  final String companyName;
-  final String job;
-  final String city;
-  final String sallary;
-  final String image;
-  final String mainCriteria;
-  final String jobOpportunity;
-  final String aboutCompany;
-  final List<String> jobResponsbilities;
-  final List<String> tag;
+  final String? companyName;
+  final String? job;
+  final String? city;
+  final String? sallary;
+  final String? image;
+  final String? mainCriteria;
+  final String? jobOpportunity;
+  final String? aboutCompany;
+  final List<String>? jobResponsbilities;
+  final List<String>? tag;
   Company({
     this.city,
     this.job,

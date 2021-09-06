@@ -5,7 +5,7 @@ import 'package:job/views/company_tab.dart';
 import 'package:job/views/description_tab.dart';
 
 class JobDetail extends StatelessWidget {
-  final Company company;
+  final Company? company;
   JobDetail({this.company});
 
   @override
@@ -23,7 +23,7 @@ class JobDetail extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
-          company.companyName,
+          company!.companyName!,
           style: kTitleStyle,
         ),
         centerTitle: true,
@@ -54,7 +54,7 @@ class JobDetail extends StatelessWidget {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15.0),
                           image: DecorationImage(
-                            image: AssetImage(company.image),
+                            image: AssetImage(company!.image!),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -62,20 +62,20 @@ class JobDetail extends StatelessWidget {
                     ),
                     SizedBox(height: 20.0),
                     Text(
-                      company.job,
+                      company!.job!,
                       style: kTitleStyle.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     SizedBox(height: 15.0),
                     Text(
-                      company.sallary,
+                      company!.sallary!,
                       style: kSubtitleStyle,
                     ),
                     SizedBox(height: 15.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: company.tag
+                      children: company!.tag!
                           .map(
                             (e) => Container(
                               margin: EdgeInsets.symmetric(horizontal: 5.0),
@@ -158,11 +158,13 @@ class JobDetail extends StatelessWidget {
               Expanded(
                 child: SizedBox(
                   height: 50.0,
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     onPressed: () {},
-                    color: kBlack,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.0),
+                    style: ElevatedButton.styleFrom(
+                      primary: kBlack,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
                     ),
                     child: Text(
                       "Apply for Job",
